@@ -38,19 +38,11 @@ export type ModeratorInactivityRemainingTime = {
 };
 
 function generateModeratorInactivityMail(remainingTime: ModeratorInactivityRemainingTime) {
-	const subject = 'Moderator Inactivity Warning / モデレーター不在の通知 / 모더레이터 부재 안내';
+	const subject = 'モデレーター不在の通知 / Moderator Inactivity Warning';
 
-	const timeVariant = remainingTime.asDays === 0 ? `${remainingTime.asHours} hours` : `${remainingTime.asDays} days`;
-	const timeVariantJa = remainingTime.asDays === 0 ? `${remainingTime.asHours} 時間` : `${remainingTime.asDays} 日間`;
-	const timeVariantKo = remainingTime.asDays === 0 ? `${remainingTime.asHours} 시간` : `${remainingTime.asDays} 일간`;
+		const timeVariantJa = remainingTime.asDays === 0 ? `${remainingTime.asHours} 時間` : `${remainingTime.asDays} 日間`;
+		const timeVariant = remainingTime.asDays === 0 ? `${remainingTime.asHours} hours` : `${remainingTime.asDays} days`;
 	const message = [
-		'To Moderators,',
-		'',
-		`A moderator has been inactive for a period of time. If there are ${timeVariant} of inactivity left, it will switch to invitation only.`,
-		'If you do not wish to move to invitation only, you must log into CherryPick and update your last active date and time.',
-		'',
-		'---------------',
-		'',
 		'To モデレーター各位',
 		'',
 		`モデレーターが一定期間活動していないようです。あと${timeVariantJa}活動していない状態が続くと招待制に切り替わります。`,
@@ -58,10 +50,10 @@ function generateModeratorInactivityMail(remainingTime: ModeratorInactivityRemai
 		'',
 		'---------------',
 		'',
-		'To 모더레이터 여러분께',
+		'To Moderators,',
 		'',
-		`모더레이터가 일정 기간 동안 활동이 없는 것으로 추정돼요. 앞으로 ${timeVariantKo} 비활성 상태가 지속되면 자동으로 초대제로 전환돼요.`,
-		'초대제로 전환을 원하지 않는 경우, CherryPick에 로그인하여 마지막 활성 날짜를 업데이트해 주세요.',
+		`A moderator has been inactive for a period of time. If there are ${timeVariant} of inactivity left, it will switch to invitation only.`,
+		'If you do not wish to move to invitation only, you must log into CherryPick and update your last active date and time.',
 		'',
 	];
 
