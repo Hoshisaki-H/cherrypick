@@ -82,7 +82,6 @@ export function build() {
 				case 'en-US': return merge(locales['ja-JP'], v);
 				default: return merge(
 					locales['ja-JP'],
-					locales['ko-KR'],
 					locales['en-US'],
 					locales[`${lang}-${primaries[lang]}`] ?? {},
 					v
