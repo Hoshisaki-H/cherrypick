@@ -154,7 +154,6 @@ export const defaultStore = markRaw(new Storage('base', {
 			'notifications',
 			'messaging',
 			'favorites',
-			'followRequests',
 			'explore',
 			'search',
 			'announcements',
@@ -359,7 +358,7 @@ export const defaultStore = markRaw(new Storage('base', {
 	},
 	squareAvatars: {
 		where: 'account',
-		default: true,
+		default: false,
 	},
 	showAvatarDecorations: {
 		where: 'device',
